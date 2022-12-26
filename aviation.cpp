@@ -38,8 +38,8 @@ namespace td {
         float left = move_speed;
 
         std::cout << x << " " << y << std::endl;
-        if(x < 130.0f)
-            return;
+        //if(x < 130.0f)
+        //    return;
 
         if ( field[v].line[(int)((x - 130.0f - left - 50.0f) / 100)].get_type() != 2 ){
             x -= left;

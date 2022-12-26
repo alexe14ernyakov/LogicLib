@@ -72,14 +72,24 @@ namespace td{
         std::cout << enemies.size() << std::endl;
 
         if(enemies_count != 0){
-            auto it(enemies.begin());
-            while (it != enemies.end()) {
-                if (!it->get()->get_is_alive()) {
-                    enemies.erase(it);
+            //auto it(enemies.begin());
+            /*for (auto &it : enemies){
+                if(!it->get_is_alive()){
+                    enemies.remove(it);
                     enemies_count--;
-                    std::cout << "Sucsessfull deletion" << std::endl;
+                    std::cout << "Deleted" << std::endl;
                 }
-                it++;
+            }
+            */
+
+            std::list<std::unique_ptr<Enemy>>::iterator it(enemies.begin());
+            while(it != enemies.end()){
+                if(!it->get()->get_is_alive()){
+                    it = enemies.erase(it);
+                    enemies_count--;
+                    std::cout << "Deleted" << std::endl;
+                }
+                ++it;
             }
         }
     }

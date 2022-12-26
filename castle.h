@@ -20,7 +20,11 @@ namespace td{
     public:
         Castle();
         bool check_entire() const;
+        void increase_balance(int amount);
+        void decrease_balance(int amount);
+        bool update_available() const;
         void get_damage(float dmg);
+        void upgrade();
     };
 }
 #endif
